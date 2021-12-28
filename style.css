@@ -1,11 +1,27 @@
+.body {
+    font-family: sofia-sans, sans-serif;
+}
+
 .grid-container {
     display: grid;
-    align-items: center;
-    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 40px;
+    margin: 5rem;
 }
 
 .grid-element {
     text-align: center;
-    grid-gap: 40px;
+    background-color: gray;
+}
+
+.grid-element:hover {
+    transform: rotateZ(180);
+}
+
+.wide {
+    grid-column: span 2;
+}
+
+.tall {
+    grid-row: span 2;
 }
