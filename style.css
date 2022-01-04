@@ -1,5 +1,14 @@
-.body {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     font-family: sofia-sans, sans-serif;
+}
+
+.main-page-container {
+    min-height: 1vw;
+    position: static;
 }
 
 .grid-container {
@@ -7,15 +16,44 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 40px;
     margin: 5rem;
+    
+}
+
+.grid-element-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transition: border-left 0.2s;
+    transform-style: preserve-3d;
 }
 
 .grid-element {
     text-align: center;
     background-color: gray;
+    border-radius: 2em;
+    font-size: 4em;
+    vertical-align: middle;
+    perspective: 1000px;
+    background-color: transparent;
 }
 
-.grid-element:hover {
-    transform: rotateZ(180);
+.grid-element:hover .grid-element-inner {
+    /* transform: rotateX(-180deg); */
+    border-left: 10px solid tomato;
+}
+
+.front .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.back {
+    background-color: black;
+    color: white;
+    transform: rotateX(-180deg);
 }
 
 .wide {
