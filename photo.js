@@ -53,6 +53,7 @@ window.addEventListener('scroll', () => {
       frameCount - 1,
       Math.floor(scrollFraction * frameCount)
     );
+    console.log(frameIndex);
     requestAnimationFrame(() => updateImage(frameIndex + 1))
   });
 
