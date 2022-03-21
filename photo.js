@@ -19,7 +19,7 @@ console.log("hi");
 
 // takes index of img as parameter, returns src of img
 const currentFrame = index => (
-    `/assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
+    `assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
   )
 
 canvas.height = window.innerHeight;
@@ -31,6 +31,10 @@ const img = new Image();
 img.src = currentFrame(1);
 
 const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+console.log("Img width: " + img.width);
+console.log("Img height: " + img.height);
+console.log("Horizontal: " + canvas.width / img.width);
+console.log(scale);
 const centerShift_x = (canvas.width - img.width * scale) / 2;
 const centerShift_y = (canvas.height - img.height * scale) / 2; 
 
