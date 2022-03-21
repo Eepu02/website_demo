@@ -9,11 +9,6 @@ html {
     scrollbar-width: none;  /* Firefox */
 }
 
-body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
 html::-webkit-scrollbar {
     display: none;
 }
@@ -21,7 +16,9 @@ html::-webkit-scrollbar {
 body {
     height: 150vw;
     margin: 0;
-    background-color: transparent;
+    background-color: black;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 canvas {

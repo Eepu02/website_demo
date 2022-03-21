@@ -19,7 +19,7 @@ console.log("hi");
 
 // takes index of img as parameter, returns src of img
 const currentFrame = index => (
-    `assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
+    `/assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
   )
 
 canvas.height = window.innerHeight;
@@ -44,6 +44,7 @@ const updateImage = index => {
     // if(img.complete) {
         img.src = currentFrame(index);
         context.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * scale, img.height * scale);
+        //console.log(img.src);
     // }
   }
 
