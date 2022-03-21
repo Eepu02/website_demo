@@ -18,7 +18,7 @@ const frameCount = 239;
 
 // takes index of img as parameter, returns src of img
 const currentFrame = index => (
-    `/assets/1080/${index.toString().padStart(4, '0')}.jpg`
+    `website_demo/assets/1080/${index.toString().padStart(4, '0')}.jpg`
   )
 
 canvas.height = window.innerHeight;
