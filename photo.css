@@ -3,22 +3,39 @@ html {
     padding: 0;
     height: 100vw;
     scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 body {
-    height: 500vw;
-    margin: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-/* img {
-    max-width: 100vw;
-} */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    height: 150vw;
+    margin: 0;
+    background-color: transparent;
+}
 
 canvas {
     position: fixed;
     left: 50%;
     top: 50%;
-    max-height: 100vh;
-    max-width: 100vw;
     transform: translate(-50%, -50%);
-  }
+    min-width: 110%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+h1 {
+    font-size: 6rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(45deg, #cd73f7 30%, #b6353b 70%);
+}
