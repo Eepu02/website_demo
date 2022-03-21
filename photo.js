@@ -19,7 +19,7 @@ console.log("hi");
 
 // takes index of img as parameter, returns src of img
 const currentFrame = index => (
-    `assets/1080/${index.toString().padStart(4, '0')}.jpg`
+    `assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
   )
 
 canvas.height = window.innerHeight;
@@ -53,7 +53,6 @@ window.addEventListener('scroll', () => {
       frameCount - 1,
       Math.floor(scrollFraction * frameCount)
     );
-    console.log(frameIndex);
     requestAnimationFrame(() => updateImage(frameIndex + 1))
   });
 
