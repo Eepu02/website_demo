@@ -15,6 +15,7 @@ const html = document.documentElement;
 const canvas = document.querySelector(".product-slide");
 const context = canvas.getContext('2d');
 const frameCount = 239;
+console.log("hi");
 
 // takes index of img as parameter, returns src of img
 const currentFrame = index => (
