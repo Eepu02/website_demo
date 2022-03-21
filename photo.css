@@ -39,5 +39,6 @@ h1 {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    background-image: linear-gradient(45deg, #cd73f7 30%, #b6353b 70%);
+    background-image: linear-gradient(45deg, #cd73f7 0%, #b6353b 50%);
+    padding: 1rem;
 }

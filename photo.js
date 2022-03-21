@@ -41,8 +41,10 @@ img.onload = function() {
 
 // Updates img path and draws updated image
 const updateImage = index => {
-    img.src = currentFrame(index);
-    context.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * scale, img.height * scale);
+    // if(img.complete) {
+        img.src = currentFrame(index);
+        context.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * scale, img.height * scale);
+    // }
   }
 
 window.addEventListener('scroll', () => {  
