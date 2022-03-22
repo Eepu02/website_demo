@@ -30,8 +30,9 @@ let img = new Image();
 // Set source to 1st frame
 img.src = currentFrame(1);
 
-const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
 const centerShift_x = (canvas.width - img.width * scale) / 2;
+console.log(centerShift_x);
 const centerShift_y = (canvas.height - img.height * scale) / 2;
 
 // Load first image on page load
