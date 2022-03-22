@@ -16,7 +16,7 @@ html::-webkit-scrollbar {
 body {
     height: 150vw;
     margin: 0;
-    background-color: white;
+    background-color: transparent;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
