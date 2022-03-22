@@ -30,17 +30,14 @@ let img = new Image();
 // Set source to 1st frame
 img.src = currentFrame(1);
 
-let scale;
-let centerShift_x;
-let centerShift_y;
+const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+const centerShift_x = (canvas.width - img.width * scale) / 2;
+const centerShift_y = (canvas.height - img.height * scale) / 2;
 
 // Load first image on page load
 img.onload = function() {
 /*   console.log("Leveys ladattu: " + img.width)
   console.log("Korkeus ladattu: " + img.height) */
-  scale = Math.min(canvas.width / img.width, canvas.height / img.height);
-  centerShift_x = (canvas.width - img.width * scale) / 2;
-  centerShift_y = (canvas.height - img.height * scale) / 2;
 /*   console.log("Canvas width: " + canvas.width);
   console.log("Canvas height: " + canvas.width);
   console.log("X shift: " + centerShift_x);
