@@ -25,29 +25,37 @@ const currentFrame = index => (
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-const img = new Image();
+let img = new Image();
 
 // Set source to 1st frame
 img.src = currentFrame(1);
 
-const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
-console.log("Img width: " + img.width);
-console.log("Img height: " + img.height);
-console.log("Horizontal: " + canvas.width / img.width);
-console.log(scale);
-const centerShift_x = (canvas.width - img.width * scale) / 2;
-const centerShift_y = (canvas.height - img.height * scale) / 2; 
+let scale;
+let centerShift_x;
+let centerShift_y;
 
 // Load first image on page load
 img.onload = function() {
-    context.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * scale, img.height * scale);
+/*   console.log("Leveys ladattu: " + img.width)
+  console.log("Korkeus ladattu: " + img.height) */
+  scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+  centerShift_x = (canvas.width - img.width * scale) / 2;
+  centerShift_y = (canvas.height - img.height * scale) / 2;
+/*   console.log("Canvas width: " + canvas.width);
+  console.log("Canvas height: " + canvas.width);
+  console.log("X shift: " + centerShift_x);
+  console.log("Y shift: " + centerShift_y);
+  console.log("Scale ladattu: " + scale); */
+  context.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*scale, img.height*scale);
+  //(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * scale, img.height * scale);
 }
 
 // Updates img path and draws updated image
 const updateImage = index => {
     // if(img.complete) {
         img.src = currentFrame(index);
-        context.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * scale, img.height * scale);
+        context.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*scale, img.height*scale);
+        //(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * scale, img.height * scale);
         //console.log(img.src);
     // }
   }
@@ -65,7 +73,7 @@ window.addEventListener('scroll', () => {
 
 // Loads images into memory for faster access
 const preloadImages = () => {
-    for(let i = 0; i < frameCount; i++) {
+    for(let i = 1; i <= frameCount; i++) {
         const img = new Image();
         img.src = currentFrame(i);
     }
