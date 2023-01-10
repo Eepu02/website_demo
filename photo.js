@@ -17,6 +17,8 @@ const context = canvas.getContext('2d');
 const frameCount = 239;
 console.log("hi");
 
+const loader = document.querySelector(".loader-bg");
+
 // Stores the images for fast access
 const images = []
 
@@ -67,6 +69,7 @@ const preloadImages = () => {
         img.src = currentFrame(i);
         images[i] = img
     }
+    loader.style.display = "none"
 };
 
 preloadImages();
