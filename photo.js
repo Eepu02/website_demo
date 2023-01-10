@@ -14,7 +14,7 @@ const html = document.documentElement;
 // for easy future referencing
 const canvas = document.querySelector(".product-slide");
 const context = canvas.getContext('2d');
-const frameCount = 239;
+const frameCount = 238;
 console.log("hi");
 
 const loader = document.querySelector(".loader-bg");
@@ -24,8 +24,9 @@ const images = []
 
 // takes index of img as parameter, returns src of img
 const currentFrame = index => (
-    `assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
-  )
+    // `assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
+    `assets/1080_50_webp/${index.toString().padStart(4, '0')}.webp`
+)
 
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
