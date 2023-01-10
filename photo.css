@@ -16,9 +16,7 @@ html::-webkit-scrollbar {
 body {
     height: 150vw;
     margin: 0;
-    background-color: black;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    background-color: transparent;
 }
 
 canvas {
@@ -26,9 +24,10 @@ canvas {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    min-width: 100%;
     /* min-width: auto;
     min-height: 100%; */
-    /* z-index: -1; */
+    z-index: 1;
 }
 
 /* h1 {
