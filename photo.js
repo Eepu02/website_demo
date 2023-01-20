@@ -15,7 +15,6 @@ const html = document.documentElement;
 const canvas = document.querySelector(".product-slide");
 const context = canvas.getContext('2d');
 const frameCount = 238;
-console.log("hi");
 
 const loader = document.querySelector(".loader-bg");
 
@@ -43,14 +42,15 @@ const centerShift_y = (canvas.height - img.height * scale) / 2;
 
 // Load first image on page load
 img.onload = function() {
-  context.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*scale, img.height*scale);
+  context.drawImage(img, 0,0, img.width, img.height, centerShift_x, centerShift_y, img.width*scale, img.height*scale);
 }
 
 // Updates img path and draws updated image
 const updateImage = index => {
-        img.src = currentFrame(index);
-        context.drawImage(images[index], 0,0, img.width, img.height, 0,0,img.width*scale, img.height*scale);
-  }
+    let photo = images[index];
+    // img.src = currentFrame(index);
+    context.drawImage(images[index], 0,0, photo.width, photo.height, centerShift_x, centerShift_y, photo.width*scale, photo.height*scale);
+}
 
 window.addEventListener('scroll', () => {  
     const scrollTop = html.scrollTop;
@@ -60,17 +60,19 @@ window.addEventListener('scroll', () => {
       frameCount - 1,
       Math.floor(scrollFraction * frameCount)
     );
-    requestAnimationFrame(() => updateImage(frameIndex + 1))
+    requestAnimationFrame(() => updateImage(frameIndex + 1));
   });
 
 // Loads images into memory for faster access
-const preloadImages = () => {
+async function preloadImages() {
     for(let i = 1; i <= frameCount; i++) {
         const img = new Image();
         img.src = currentFrame(i);
-        images[i] = img
+        images[i] = img;
     }
-    loader.style.display = "none"
+    loader.style.display = "none";
+    // requestAnimationFrame(() => updateImage(0));
+    console.log("images loaded!");
 };
 
 preloadImages();
