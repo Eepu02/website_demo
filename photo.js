@@ -52,10 +52,21 @@ const updateImage = index => {
     context.drawImage(images[index], 0,0, photo.width, photo.height, centerShift_x, centerShift_y, photo.width*scale, photo.height*scale);
 }
 
-window.addEventListener('scroll', () => {  
-    const scrollTop = html.scrollTop;
-    const maxScrollTop = html.scrollHeight - window.innerHeight;
-    const scrollFraction = scrollTop / maxScrollTop;
+const wrapper = document.querySelector(".canvas-wrapper");
+window.addEventListener('scroll', () => {
+
+    const sizes = wrapper.getBoundingClientRect();
+    
+    if(window.pageYOffset > sizes.height * 2) {
+      wrapper.style.position = 'relative';
+      wrapper.style.marginTop = sizes.height + 'px';
+    } else {
+      wrapper.style.position = 'sticky';
+      wrapper.style.marginTop = '0px';
+    }
+
+    const scrollFraction = Math.max(0, (window.pageYOffset - sizes.height) / sizes.height);
+    
     const frameIndex = Math.min(
       frameCount - 1,
       Math.floor(scrollFraction * frameCount)
