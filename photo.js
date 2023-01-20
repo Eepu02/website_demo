@@ -53,11 +53,11 @@ const updateImage = index => {
 }
 
 const wrapper = document.querySelector(".canvas-wrapper");
+const canvasPos = wrapper.getBoundingClientRect().top;
 window.addEventListener('scroll', () => {
-
+  
     const sizes = wrapper.getBoundingClientRect();
-    
-    if(window.pageYOffset > sizes.height * 2) {
+    if(window.pageYOffset > canvasPos + sizes.height) {
       wrapper.style.position = 'relative';
       wrapper.style.marginTop = sizes.height + 'px';
     } else {
@@ -65,7 +65,8 @@ window.addEventListener('scroll', () => {
       wrapper.style.marginTop = '0px';
     }
 
-    const scrollFraction = Math.max(0, (window.pageYOffset - sizes.height) / sizes.height);
+    const scrollFraction = Math.max(0, (window.pageYOffset - canvasPos) / sizes.height);
+    console.log(scrollFraction);
     
     const frameIndex = Math.min(
       frameCount - 1,
