@@ -1,14 +1,3 @@
-/* console.log("moi");
-document.addEventListener("scroll", changeNumber);
-var img = document.getElementById("product");
-console.log(img);
-var currentImg = img.getAttribute("src")
-var currentNumber = parseInt(currentImg.substring(8, 12));
-var nextNumber = currentNumber + 1;
-nextNumber = ("0000" + nextNumber).slice(-4);
-var nextImg = "/assets/" + nextNumber + ".jpg";
-console.log(nextImg); */
-
 const html = document.documentElement;
 
 // for easy future referencing
@@ -66,7 +55,6 @@ window.addEventListener('scroll', () => {
     }
 
     const scrollFraction = Math.max(0, (window.pageYOffset - canvasPos) / sizes.height);
-    console.log(scrollFraction);
     
     const frameIndex = Math.min(
       frameCount - 1,
