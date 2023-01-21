@@ -1,14 +1,3 @@
-/* console.log("moi");
-document.addEventListener("scroll", changeNumber);
-var img = document.getElementById("product");
-console.log(img);
-var currentImg = img.getAttribute("src")
-var currentNumber = parseInt(currentImg.substring(8, 12));
-var nextNumber = currentNumber + 1;
-nextNumber = ("0000" + nextNumber).slice(-4);
-var nextImg = "/assets/" + nextNumber + ".jpg";
-console.log(nextImg); */
-
 const html = document.documentElement;
 
 // for easy future referencing
@@ -52,10 +41,21 @@ const updateImage = index => {
     context.drawImage(images[index], 0,0, photo.width, photo.height, centerShift_x, centerShift_y, photo.width*scale, photo.height*scale);
 }
 
-window.addEventListener('scroll', () => {  
-    const scrollTop = html.scrollTop;
-    const maxScrollTop = html.scrollHeight - window.innerHeight;
-    const scrollFraction = scrollTop / maxScrollTop;
+const wrapper = document.querySelector(".canvas-wrapper");
+const canvasPos = wrapper.getBoundingClientRect().top;
+window.addEventListener('scroll', () => {
+  
+    const sizes = wrapper.getBoundingClientRect();
+    if(window.pageYOffset > canvasPos + sizes.height) {
+      wrapper.style.position = 'relative';
+      wrapper.style.marginTop = sizes.height + 'px';
+    } else {
+      wrapper.style.position = 'sticky';
+      wrapper.style.marginTop = '0px';
+    }
+
+    const scrollFraction = Math.max(0, (window.pageYOffset - canvasPos) / sizes.height);
+    
     const frameIndex = Math.min(
       frameCount - 1,
       Math.floor(scrollFraction * frameCount)
