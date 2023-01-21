@@ -1,3 +1,7 @@
+:root {
+  --skills-text-height: calc(100% / 16);
+  --skills-text-size: 2rem;
+}
 html {
     margin: 0;
     padding: 0;
@@ -27,13 +31,20 @@ canvas {
 }
 
 h1 {
-    font-size: 10rem;
+    text-align: center;
+    font-size: 6rem;
+    font-family: 'Pacifico', cursive;
+    background-image: linear-gradient(45deg, #cd73f7 30%, #b6353b 50%, #283c9c 80%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* font-size: 10rem;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
     background-image: linear-gradient(45deg, #cd73f7 30%, #b6353b 50%, #283c9c 80%);
     padding: 1rem 6rem 1rem 6rem;
-    text-shadow: black 4px 0px 0px;
+    text-shadow: black 4px 0px 0px; */
     margin: 0;
 }
 
@@ -119,3 +130,60 @@ h2 {
     transform: scale(1);
   }
 }
+
+.content {
+  min-height: 100vh;
+  align-items: center;
+}
+
+.front-wrapper {
+  position: relative;
+  margin: auto;
+}
+
+.front-wrapper p {
+  position: absolute;
+  right: 51%;
+  text-align: right;
+  top: 0;
+}
+
+.front-wrapper ul {
+  position: absolute;
+  left: 51%;
+  top: 0;
+  padding: 0;
+  list-style: none;
+  clip-path: polygon(0 0, 100% 0, 100% 6.25%, 0 6.25%);
+  animation: skills 3s ease-in-out 2s 1 forwards alternate;
+}
+
+p, li {
+  font-size: var(--skills-text-size);
+}
+
+p {
+  margin-top: 1rem;
+}
+
+
+@keyframes skills {
+  0% {
+    top: 0;
+    clip-path: polygon(0 0, 100% 0, 100% var(--skills-text-height), 0 var(--skills-text-height));
+  }
+  100% {
+    top: calc(var(--skills-text-size) * -17.20); /* 14px per line*/
+    clip-path: polygon(0 calc(100% - var(--skills-text-height)), 100% calc(100% - var(--skills-text-height)), 100% 100%, 0 100%);
+  }
+}
+
+/* .front-wrapper ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 50px;
+  background: red;
+} */
