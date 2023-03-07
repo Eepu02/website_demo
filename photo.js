@@ -37,6 +37,7 @@ img.onload = function() {
 // Updates img path and draws updated image
 const updateImage = index => {
     let photo = images[index];
+    // console.log(photo.src)
     // img.src = currentFrame(index);
     context.drawImage(images[index], 0,0, photo.width, photo.height, centerShift_x, centerShift_y, photo.width*scale, photo.height*scale);
 }
